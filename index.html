@@ -293,6 +293,10 @@
             }
             .card {
                 padding: 20px;
+                transition: all 0.3s ease;
+            }
+            .card.center {
+                transform: scale(1.05);
             }
         }
 
@@ -415,11 +419,32 @@
             }
         }
 
+        function checkCardCenter() {
+            if (window.innerWidth <= 768) {
+                var cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    var cardRect = card.getBoundingClientRect();
+                    var cardCenter = cardRect.top + cardRect.height / 2;
+                    var screenCenter = window.innerHeight / 2;
+                    if (Math.abs(cardCenter - screenCenter) < 50) {
+                        card.classList.add('center');
+                    } else {
+                        card.classList.remove('center');
+                    }
+                });
+            }
+        }
+
         window.addEventListener('scroll', () => {
             checkCards();
             checkScrollToTop();
+            checkCardCenter();
         });
-        window.addEventListener('load', checkCards);
+        window.addEventListener('load', () => {
+            checkCards();
+            checkCardCenter();
+        });
+        window.addEventListener('resize', checkCardCenter);
 
         document.querySelector('.scroll-to-top').addEventListener('click', () => {
             window.scrollTo({
