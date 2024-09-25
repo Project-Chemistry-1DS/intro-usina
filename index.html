@@ -1,456 +1,641 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usina Nuclear | Informação e Conscientização</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Energia Nuclear - Informações e Modelos 3D</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #0a0a0a;
-            --secondary-color: #1c1c1c;
-            --accent-color: #c0a080;
-            --text-color: #e0e0e0;
-            --highlight-color: #ff6b6b;
-        }
-        
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--primary-color);
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMGEwYTBhIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxYzFjMWMiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
-            color: var(--text-color);
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .banner {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 30px 0;
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .banner:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
-        }
-
-        .botoes-3d {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .botao-3d {
-            width: 48%;
-            padding: 20px;
-            background-color: var(--secondary-color);
-            color: var(--accent-color);
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.1em;
-            border: 1px solid var(--accent-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-
-        .botao-3d:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: all 0.5s;
-        }
-
-        .botao-3d:hover:before {
-            left: 100%;
-        }
-
-        .botao-3d:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .botao {
-            display: block;
-            width: calc(100% - 40px);
-            margin: 40px auto;
-            padding: 25px;
-            background-color: var(--secondary-color);
-            color: var(--accent-color);
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.2em;
-            border: 1px solid var(--accent-color);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-
-        .botao:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: all 0.5s;
-        }
-
-        .botao:hover:before {
-            left: 100%;
-        }
-
-        .botao:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .titulo {
-            height: 80vh;
+        .navbar {
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x900/?nuclear-power-plant') no-repeat center center/cover;
-            background-attachment: fixed;
-            position: relative;
-            overflow: hidden;
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
         }
 
-        .titulo::after {
-            content: '';
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-item {
+            margin: 5px 15px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        .nav-link:hover {
+            color: #4CAF50;
+        }
+
+        .dropdown {
+            display: none;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            animation: pulse 4s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.7; }
-        }
-
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4em;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            animation: tituloFade 5s ease-in-out infinite;
-            position: relative;
+            background-color: #2a2a2a;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             z-index: 1;
+            border-radius: 4px;
         }
 
-        @keyframes tituloFade {
-            0%, 100% {opacity: 0.7; transform: scale(1);}
-            50% {opacity: 1; transform: scale(1.05);}
+        .nav-item:hover .dropdown {
+            display: block;
         }
 
-        .card {
-            background: rgba(28, 28, 28, 0.7);
-            border-radius: 10px;
-            padding: 30px;
-            margin: 40px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 3px solid var(--accent-color);
-            position: relative;
-            overflow: hidden;
+        .dropdown li {
+            padding: 10px;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .dropdown a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .card:hover::before {
-            opacity: 0.1;
-        }
-
-        .card:nth-child(even) {
-            transform: translateY(-50px);
-        }
-
-        .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-size: 2em;
-            position: relative;
-        }
-
-        .card h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .card:hover h2::after {
-            width: 100px;
-        }
-
-        .card p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9em;
-            background-color: var(--secondary-color);
-            margin-top: 60px;
-            border-top: 1px solid var(--accent-color);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color), var(--primary-color));
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: var(--accent-color);
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--highlight-color);
+        .dropdown a:hover {
+            color: #4CAF50;
         }
 
         @media (max-width: 768px) {
-            .botoes-3d {
+            .navbar {
                 flex-direction: column;
+                align-items: stretch;
             }
-            .botao-3d {
+
+            .nav-links {
+                flex-direction: column;
                 width: 100%;
-                margin-bottom: 20px;
             }
-            h1 {
-                font-size: 2.5em;
+
+            .nav-item {
+                margin: 5px 0;
             }
-            .card {
-                padding: 20px;
-                transition: all 0.3s ease;
+
+            .dropdown {
+                position: static;
+                display: none;
+                width: 100%;
             }
-            .card.center {
-                transform: scale(1.05);
+
+            .nav-item:hover .dropdown {
+                display: block;
             }
         }
 
-        @media (min-width: 1200px) {
-            .container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
+        @media (max-width: 480px) {
+            .nav-link {
+                font-size: 14px;
             }
-            .titulo, .botoes-3d, .botao {
-                grid-column: 1 / -1;
-            }
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            width: 50px;
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background-color: var(--highlight-color);
         }
     </style>
 </head>
 <body>
-    <div class="banner">
-        <h2>Modelos 3D</h2>
-    </div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="#modelos3d" class="nav-link">
+                    <i class="fas fa-cube"></i>
+                    Modelos 3D
+                </a>
+                <ul class="dropdown">
+                    <li><a href="https://netheriosa.github.io/intro-usina/">Usina</a></li>
+                    <li><a href="https://netheriosa.github.io/intro/">Chernobyl</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="https://netheriosa.github.io/pag2/" class="nav-link">
+                    <i class="fas fa-radiation"></i>
+                    Chernobyl
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://netheriosa.github.io/pag3/" class="nav-link">
+                    <i class="fas fa-atom"></i>
+                    Energia Nuclear
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://netheriosa.github.io/pag4/" class="nav-link">
+                    <i class="fas fa-industry"></i>
+                    Usina
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-    <div class="container">
-        <div class="botoes-3d">
-            <a href="https://netheriosa.github.io/intro/" class="botao-3d">Desastre</a>
-            <a href="https://netheriosa.github.io/intro-usina/" class="botao-3d">Usina</a>
-        </div>
-        
-        <a href="https://netheriosa.github.io/usina/" class="botao">Visualizar Modelo 3D da Usina</a>
-
-        <div class="titulo">
-            <h1>Usina Nuclear</h1>
-        </div>
-        
-        <div class="card visible">
-            <h2>Funcionamento Básico</h2>
-            <p>Uma usina nuclear gera eletricidade através da fissão nuclear, um processo que libera grande quantidade de energia. Este processo revolucionou a produção de energia elétrica, oferecendo uma alternativa de alta potência e baixa emissão de carbono.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Reator Nuclear</h2>
-            <p>O coração da usina é o reator nuclear, onde ocorre a fissão controlada de átomos de urânio, gerando calor intenso. Este processo é cuidadosamente monitorado e controlado para garantir a segurança e eficiência da operação.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Geração de Vapor</h2>
-            <p>O calor produzido no reator é usado para aquecer água e gerar vapor em alta pressão, que move turbinas conectadas a geradores. Este processo de conversão de energia térmica em mecânica é fundamental para a produção de eletricidade.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Produção de Eletricidade</h2>
-            <p>Os geradores convertem a energia mecânica das turbinas em energia elétrica, que é então distribuída para a rede elétrica. Esta etapa final do processo permite que a energia nuclear seja utilizada em residências, indústrias e comércios.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Segurança</h2>
-            <p>As usinas nucleares possuem múltiplos sistemas de segurança para prevenir acidentes e proteger o meio ambiente. Estes sistemas são constantemente atualizados e testados para garantir a máxima segurança na operação das usinas.</p>
-        </div>
-        
-        <div class="card">
-            <h2>Resíduos Nucleares</h2>
-            <p>Os resíduos nucleares são cuidadosamente armazenados e gerenciados para minimizar o impacto ambiental. A gestão responsável destes resíduos é um desafio contínuo e uma área de intensa pesquisa e desenvolvimento na indústria nuclear.</p>
-        </div>
-    </div>
-    
-    <footer>
-        <p>Site feito por Enrico Fedel - 1° DS</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/fdel.rico/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-
-    <div class="scroll-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
-    <script>
-        function checkCards() {
-            var cards = document.querySelectorAll('.card:not(.visible)');
-            cards.forEach(card => {
-                var cardTop = card.getBoundingClientRect().top;
-                var screenHeight = window.innerHeight;
-                if(cardTop < screenHeight) {
-                    card.classList.add('visible');
-                }
-            });
-        }
-
-        function checkScrollToTop() {
-            var scrollToTop = document.querySelector('.scroll-to-top');
-            if (window.pageYOffset > 300) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Usina Nuclear | Informação e Conscientização</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            :root {
+                --primary-color: #0a0a0a;
+                --secondary-color: #1c1c1c;
+                --accent-color: #c0a080;
+                --text-color: #e0e0e0;
+                --highlight-color: #ff6b6b;
             }
-        }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        function checkCardCenter() {
-            if (window.innerWidth <= 768) {
-                var cards = document.querySelectorAll('.card');
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: var(--primary-color);
+                background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMGEwYTBhIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxYzFjMWMiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+                color: var(--text-color);
+                line-height: 1.8;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .banner {
+                background-color: var(--secondary-color);
+                color: var(--text-color);
+                text-align: center;
+                padding: 30px 0;
+                font-size: 1.5em;
+                margin-bottom: 40px;
+                box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+                transition: all 0.5s ease;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .banner:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+            }
+
+            .botoes-3d {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+            }
+
+            .botao-3d {
+                width: 48%;
+                padding: 20px;
+                background-color: var(--secondary-color);
+                color: var(--accent-color);
+                text-align: center;
+                text-decoration: none;
+                font-size: 1.1em;
+                border: 1px solid var(--accent-color);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                border-radius: 5px;
+            }
+
+            .botao-3d:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: all 0.5s;
+            }
+
+            .botao-3d:hover:before {
+                left: 100%;
+            }
+
+            .botao-3d:hover {
+                background-color: var(--accent-color);
+                color: var(--primary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+
+            .botao {
+                display: block;
+                width: calc(100% - 40px);
+                margin: 40px auto;
+                padding: 25px;
+                background-color: var(--secondary-color);
+                color: var(--accent-color);
+                text-align: center;
+                text-decoration: none;
+                font-size: 1.2em;
+                border: 1px solid var(--accent-color);
+                transition: all 0.5s ease;
+                position: relative;
+                overflow: hidden;
+                border-radius: 5px;
+            }
+
+            .botao:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: all 0.5s;
+            }
+
+            .botao:hover:before {
+                left: 100%;
+            }
+
+            .botao:hover {
+                background-color: var(--accent-color);
+                color: var(--primary-color);
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+
+            .titulo {
+                height: 80vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x900/?nuclear-power-plant') no-repeat center center/cover;
+                background-attachment: fixed;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .titulo::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                animation: pulse 4s infinite;
+            }
+
+            @keyframes pulse {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 0.7; }
+            }
+
+            h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 4em;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                animation: tituloFade 5s ease-in-out infinite;
+                position: relative;
+                z-index: 1;
+            }
+
+            @keyframes tituloFade {
+                0%, 100% {opacity: 0.7; transform: scale(1);}
+                50% {opacity: 1; transform: scale(1.05);}
+            }
+
+            .card {
+                background: rgba(28, 28, 28, 0.7);
+                border-radius: 10px;
+                padding: 30px;
+                margin: 40px 0;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: all 1s ease;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-left: 3px solid var(--accent-color);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .card:hover::before {
+                opacity: 0.1;
+            }
+
+            .card:nth-child(even) {
+                transform: translateY(-50px);
+            }
+
+            .card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .card h2 {
+                font-family: 'Playfair Display', serif;
+                color: var(--accent-color);
+                margin-bottom: 20px;
+                font-size: 2em;
+                position: relative;
+            }
+
+            .card h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            .card:hover h2::after {
+                width: 100px;
+            }
+
+            .card p {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+
+            footer {
+                text-align: center;
+                padding: 40px;
+                font-size: 0.9em;
+                background-color: var(--secondary-color);
+                margin-top: 60px;
+                border-top: 1px solid var(--accent-color);
+                position: relative;
+            }
+
+            footer::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, var(--primary-color), var(--accent-color), var(--primary-color));
+            }
+
+            .social-icons {
+                margin-top: 20px;
+            }
+
+            .social-icons a {
+                color: var(--accent-color);
+                font-size: 1.5em;
+                transition: color 0.3s ease;
+            }
+
+            .social-icons a:hover {
+                color: var(--highlight-color);
+            }
+
+            @media (max-width: 768px) {
+                .botoes-3d {
+                    flex-direction: column;
+                }
+                .botao-3d {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                h1 {
+                    font-size: 2.5em;
+                }
+                .card {
+                    padding: 20px;
+                    transition: all 0.3s ease;
+                }
+                .card.center {
+                    transform: scale(1.05);
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 40px;
+                }
+                .titulo, .botoes-3d, .botao {
+                    grid-column: 1 / -1;
+                }
+            }
+
+            .scroll-to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: var(--accent-color);
+                color: var(--primary-color);
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border-radius: 50%;
+                font-size: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .scroll-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .scroll-to-top:hover {
+                background-color: var(--highlight-color);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            <h2>Modelos 3D</h2>
+        </div>
+
+        <div class="container">
+            <div class="botoes-3d">
+                <a href="https://netheriosa.github.io/intro/" class="botao-3d">Desastre</a>
+                <a href="https://netheriosa.github.io/intro-usina/" class="botao-3d">Usina</a>
+            </div>
+            
+            <a href="https://netheriosa.github.io/usina/" class="botao">Visualizar Modelo 3D da Usina</a>
+
+            <div class="titulo">
+                <h1>Usina Nuclear</h1>
+            </div>
+            
+            <div class="card visible">
+                <h2>Funcionamento Básico</h2>
+                <p>Uma usina nuclear gera eletricidade através da fissão nuclear, um processo que libera grande quantidade de energia. Este processo revolucionou a produção de energia elétrica, oferecendo uma alternativa de alta potência e baixa emissão de carbono.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Reator Nuclear</h2>
+                <p>O coração da usina é o reator nuclear, onde ocorre a fissão controlada de átomos de urânio, gerando calor intenso. Este processo é cuidadosamente monitorado e controlado para garantir a segurança e eficiência da operação.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Geração de Vapor</h2>
+                <p>O calor produzido no reator é usado para aquecer água e gerar vapor em alta pressão, que move turbinas conectadas a geradores. Este processo de conversão de energia térmica em mecânica é fundamental para a produção de eletricidade.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Produção de Eletricidade</h2>
+                <p>Os geradores convertem a energia mecânica das turbinas em energia elétrica, que é então distribuída para a rede elétrica. Esta etapa final do processo permite que a energia nuclear seja utilizada em residências, indústrias e comércios.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Segurança</h2>
+                <p>As usinas nucleares possuem múltiplos sistemas de segurança para prevenir acidentes e proteger o meio ambiente. Estes sistemas são constantemente atualizados e testados para garantir a máxima segurança na operação das usinas.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Resíduos Nucleares</h2>
+                <p>Os resíduos nucleares são cuidadosamente armazenados e gerenciados para minimizar o impacto ambiental. A gestão responsável destes resíduos é um desafio contínuo e uma área de intensa pesquisa e desenvolvimento na indústria nuclear.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Site feito por Enrico Fedel - 1° DS</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/fdel.rico/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </footer>
+
+        <div class="scroll-to-top">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <script>
+            function checkCards() {
+                var cards = document.querySelectorAll('.card:not(.visible)');
                 cards.forEach(card => {
-                    var cardRect = card.getBoundingClientRect();
-                    var cardCenter = cardRect.top + cardRect.height / 2;
-                    var screenCenter = window.innerHeight / 2;
-                    if (Math.abs(cardCenter - screenCenter) < 50) {
-                        card.classList.add('center');
-                    } else {
-                        card.classList.remove('center');
+                    var cardTop = card.getBoundingClientRect().top;
+                    var screenHeight = window.innerHeight;
+                    if(cardTop < screenHeight) {
+                        card.classList.add('visible');
                     }
                 });
             }
-        }
 
-        window.addEventListener('scroll', () => {
-            checkCards();
-            checkScrollToTop();
-            checkCardCenter();
-        });
-        window.addEventListener('load', () => {
-            checkCards();
-            checkCardCenter();
-        });
-        window.addEventListener('resize', checkCardCenter);
+            function checkScrollToTop() {
+                var scrollToTop = document.querySelector('.scroll-to-top');
+                if (window.pageYOffset > 300) {
+                    scrollToTop.classList.add('visible');
+                } else {
+                    scrollToTop.classList.remove('visible');
+                }
+            }
 
-        document.querySelector('.scroll-to-top').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            function checkCardCenter() {
+                if (window.innerWidth <= 768) {
+                    var cards = document.querySelectorAll('.card');
+                    cards.forEach(card => {
+                        var cardRect = card.getBoundingClientRect();
+                        var cardCenter = cardRect.top + cardRect.height / 2;
+                        var screenCenter = window.innerHeight / 2;
+                        if (Math.abs(cardCenter - screenCenter) < 50) {
+                            card.classList.add('center');
+                        } else {
+                            card.classList.remove('center');
+                        }
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                checkCards();
+                checkScrollToTop();
+                checkCardCenter();
             });
+            window.addEventListener('load', () => {
+                checkCards();
+                checkCardCenter();
+            });
+            window.addEventListener('resize', checkCardCenter);
+
+            document.querySelector('.scroll-to-top').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+    </body>
+    </html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animação para os links do menu
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.transition = 'transform 0.3s';
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Função para ajustar o layout em diferentes resoluções
+            function adjustLayout() {
+                const navbar = document.querySelector('.navbar');
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth <= 768) {
+                    navbar.style.flexDirection = 'column';
+                    navLinks.style.flexDirection = 'column';
+                } else {
+                    navbar.style.flexDirection = 'row';
+                    navLinks.style.flexDirection = 'row';
+                }
+            }
+
+            // Chamar a função inicialmente e adicionar um listener para redimensionamento
+            adjustLayout();
+            window.addEventListener('resize', adjustLayout);
         });
     </script>
 </body>
